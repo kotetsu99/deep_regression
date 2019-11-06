@@ -46,6 +46,7 @@ def main():
 
     # 入力データ標準化
     X = input_normalization(X, x)
+
     #print("X=")
     #print(X)
     #print("x1=")
@@ -56,6 +57,7 @@ def main():
 
     # 予測結果に対し標準化の逆変換して予測時間（分）を取得
     yp = result[:,0] * y.std() + y.mean()
+    #yp = result[:,0]
     print("result=")
     print(yp)
 

@@ -14,8 +14,10 @@ import time
 
 # バッチサイズ設定
 n_bs = 4
+# 中間層ニューロン数設定
+n_units = 50
 # エポック数
-nb_epochs = 3000
+nb_epochs = 500
 # csvファイルパス取得
 csvfile = 'dataset/train.csv'
 
@@ -80,13 +82,9 @@ def dnn_model_maker(n_features, n_outputs):
     # 4層ニューラルネットワークを定義
     model = Sequential()
     # 中間層1（ニューロン=units個）と入力層を定義
-    model.add(Dense(units=500, activation='relu', input_shape=(n_features,)))
-    # Dropout層を定義
-    model.add(Dropout(0.2))
-    # 中間層2（ニューロン=units個）を定義
-    model.add(Dense(units=500, activation='relu'))
-    # Dropout層を定義
-    model.add(Dropout(0.2))
+    model.add(Dense(units=n_units, activation='relu', input_shape=(n_features,)))
+    # 中間層2（ニューロン=n_units個）を定義
+    model.add(Dense(units=n_units, activation='relu'))
     # 出力層を定義（ニューロン数は1個）
     model.add(Dense(units=n_outputs, activation='linear'))
     # 回帰学習モデル作成
