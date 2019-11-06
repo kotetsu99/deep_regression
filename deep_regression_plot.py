@@ -49,13 +49,14 @@ def main():
     #print("X=")
     #print(X)
     #print("x1=")
-    print(xp)
+    #print(xp)
 
     # 予測結果の取得
     result = dnn_model.predict(X)
 
     # 予測結果に対し標準化の逆変換して予測時間（分）を取得
     yp = result[:,0] * y.std() + y.mean()
+    print("result=")
     print(yp)
 
     # 損失関数の時系列変化をグラフ表示

@@ -15,7 +15,7 @@ import time
 # バッチサイズ設定
 n_bs = 4
 # エポック数
-nb_epochs = 1000
+nb_epochs = 3000
 # csvファイルパス取得
 csvfile = 'dataset/train.csv'
 
@@ -79,12 +79,12 @@ def load_csv(csvfile):
 def dnn_model_maker(n_features, n_outputs):
     # 4層ニューラルネットワークを定義
     model = Sequential()
-    # 中間層1（ニューロン50個）と入力層を定義
-    model.add(Dense(units=50, activation='relu', input_shape=(n_features,)))
+    # 中間層1（ニューロン=units個）と入力層を定義
+    model.add(Dense(units=500, activation='relu', input_shape=(n_features,)))
     # Dropout層を定義
     model.add(Dropout(0.2))
-    # 中間層2（ニューロン50個）を定義
-    model.add(Dense(units=50, activation='relu'))
+    # 中間層2（ニューロン=units個）を定義
+    model.add(Dense(units=500, activation='relu'))
     # Dropout層を定義
     model.add(Dropout(0.2))
     # 出力層を定義（ニューロン数は1個）
