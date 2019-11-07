@@ -25,7 +25,7 @@ def main():
         sys.exit()
 
     # 学習データセットファイル取得
-    x, y = load_dataset(csvfile)
+    x, y = load_csv(csvfile)
 
     # 学習モデルファイルパス取得
     savefile = sys.argv[1]
@@ -66,9 +66,9 @@ def main():
     plt.savefig('dnn_xy_figure.png')
 
 
-def load_dataset(dataset_file):
+def load_csv(csvfile):
     # csvをロードし、変数に格納
-    df = pd.read_csv(dataset_file)
+    df = pd.read_csv(csvfile)
     dfv = df.values.astype(np.float64)
     n_dfv = dfv.shape[1]
 

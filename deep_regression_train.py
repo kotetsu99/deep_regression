@@ -13,11 +13,11 @@ import os
 import time
 
 # バッチサイズ設定
-n_bs = 4
+n_bs = 8
 # 中間層ニューロン数設定
-n_units = 50
+n_units = 5
 # エポック数
-nb_epochs = 500
+nb_epochs = 2000
 # csvファイルパス取得
 csvfile = 'dataset/train.csv'
 
