@@ -15,7 +15,7 @@ import time
 # バッチサイズ設定
 n_bs = 8
 # 中間層ニューロン数設定
-n_units = 5
+n_units = 3
 # エポック数
 nb_epochs = 2000
 # csvファイルパス取得
