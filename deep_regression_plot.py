@@ -52,10 +52,9 @@ def main():
     # 予測結果に対し標準化の逆変換
     yp = result[:,0] * y.std() + y.mean()
 
-    # グラフ表示
-    plt.plot(xp, yp)
-    plt.savefig('result_figure.png')
-    # プロットデータをCSVに出力
+    # データプロット
+    plot_data(x, y, xp, yp)
+    # データをCSVに出力
     np.savetxt('result.csv', np.c_[xp,yp], delimiter=',')
 
 
@@ -79,6 +78,23 @@ def input_normalization(X, x):
         t = x[:,i]
         X[:,i] = (X[:,i] - t.mean()) / t.std()
     return X
+
+
+def plot_data(x, y, xp, yp):
+    # グラフの軸ラベルを設定
+    plt.xlabel('items')
+    plt.ylabel('days')
+
+    # 学習データをプロット
+    train, = plt.plot(x, y, c='#E69F00')
+    # 予測データをプロット
+    predict, = plt.plot(xp, yp, c='#56B4E9')
+
+    # グラフの凡例（はんれい）を追加
+    plt.legend([train, predict], ['train', 'predict'])
+
+    # グラフを保存
+    plt.savefig('result_figure.png')
 
 
 if __name__ == '__main__':
