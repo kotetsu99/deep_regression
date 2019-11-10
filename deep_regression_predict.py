@@ -31,7 +31,6 @@ def main():
     # 入力データリスト定義
     x_li = []
     for i in range(n_features):
-        #v_arg = int(sys.argv[(i + 2)])
         v_arg = float(sys.argv[(i + 2)])
         x_li.append(v_arg)
 
@@ -40,23 +39,16 @@ def main():
     #print(X)
     # 入力データ標準化
     X = input_normalization(X, x)
-    #X = ( X - x.mean() ) / x.std()
-    #print(X)
 
     # 予測結果の取得
     result = dnn_model.predict_on_batch(X)
 
     # 予測結果に対し標準化の逆変換
-    day = result[0][0] * y.std() + y.mean()
-    #print ('result=' + str(result[0][0]))
-    #print ('y.sytd= ' + str(y.std()))
-    #print ('y.mean= ' + str(y.mean()))
-    
-    # データ標準化されていない場合そのまま
-    #day = result[0][0]
+    Y = result * y.std() + y.mean()
+    day = Y[0][0]
 
     # 結果の表示
-    print('ディープラーニングによる予測日数')
+    print('ディープラーニングによる予測消化日数')
     print("=" + str(day) + " [日]")
 
 

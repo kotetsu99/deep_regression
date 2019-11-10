@@ -47,23 +47,16 @@ def main():
     # 入力データ標準化
     X = input_normalization(X, x)
 
-    #print("X=")
-    #print(X)
-    #print("x1=")
-    #print(xp)
-
     # 予測結果の取得
     result = dnn_model.predict(X)
-
-    # 予測結果に対し標準化の逆変換して予測時間（分）を取得
+    # 予測結果に対し標準化の逆変換
     yp = result[:,0] * y.std() + y.mean()
-    #yp = result[:,0]
-    print("result=")
-    print(yp)
 
-    # 損失関数の時系列変化をグラフ表示
+    # グラフ表示
     plt.plot(xp, yp)
-    plt.savefig('dnn_xy_figure.png')
+    plt.savefig('result_figure.png')
+    # プロットデータをCSVに出力
+    np.savetxt('result.csv', np.c_[xp,yp], delimiter=',')
 
 
 def load_csv(csvfile):

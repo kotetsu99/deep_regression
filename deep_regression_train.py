@@ -29,7 +29,7 @@ def main():
 
     # コマンド引数確認
     if len(sys.argv) < 2:
-        print('使用法: python deep_regression-20_10.py 保存ファイル名.h5')
+        print('使用法: python deep_regression_train.py モデルファイル名.h5')
         sys.exit()
     # 学習モデルファイルパス取得
     savefile = sys.argv[1]
@@ -112,7 +112,7 @@ def plot_loss(history):
     #plt.show()
 
     # グラフを保存
-    plt.savefig('dnn_train_figure.png')
+    plt.savefig('train_figure.png')
 
 if __name__ == '__main__':
     main()
