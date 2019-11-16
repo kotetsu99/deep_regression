@@ -15,7 +15,7 @@ import time
 # バッチサイズ設定
 n_bs = 8
 # 中間層ニューロン数設定
-n_units = 20
+n_units = 3
 # ドロップアウト率
 #r_dropout = 0.05
 # エポック数
