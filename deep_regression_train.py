@@ -15,7 +15,9 @@ import time
 # バッチサイズ設定
 n_bs = 8
 # 中間層ニューロン数設定
-n_units = 3
+n_units = 20
+# ドロップアウト率
+#r_dropout = 0.05
 # エポック数
 nb_epochs = 2000
 # csvファイルパス取得
@@ -67,6 +69,9 @@ def load_csv(csvfile):
     dfv = df.values.astype(np.float64)
     n_dfv = dfv.shape[1]
 
+    # 学習データをシャッフル
+    np.random.shuffle(dfv)
+
     # 特徴量のセットを変数Xに、ターゲットを変数yに格納
     x = dfv[:, np.array(range(0, (n_dfv-1)))]
     y = dfv[:, np.array([(n_dfv-1)])]
@@ -83,8 +88,12 @@ def dnn_model_maker(n_features, n_outputs):
     model = Sequential()
     # 中間層1（ニューロン=units個）と入力層を定義
     model.add(Dense(units=n_units, activation='relu', input_shape=(n_features,)))
+    # Dropout層を定義
+    #model.add(Dropout(r_dropout))
     # 中間層2（ニューロン=n_units個）を定義
     model.add(Dense(units=n_units, activation='relu'))
+    # Dropout層を定義
+    #model.add(Dropout(r_dropout))
     # 出力層を定義（ニューロン数は1個）
     model.add(Dense(units=n_outputs, activation='linear'))
     # 回帰学習モデル作成
