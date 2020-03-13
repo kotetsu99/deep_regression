@@ -20,7 +20,7 @@ n_units = 3
 #r_dropout = 0.05
 # エポック数
 nb_epochs = 2000
-# csvファイルパス取得
+# 学習データセットcsvパス設定
 csvfile = 'dataset/train.csv'
 
 def main():

@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 import os
 
-# 設定ファイルパス
+# 学習データセットcsvパス設定
 csvfile = 'dataset/train.csv'
 
 

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
-# データセットファイルパス
+# 学習データセットcsvパス設定
 csvfile = 'dataset/train.csv'
 
 
